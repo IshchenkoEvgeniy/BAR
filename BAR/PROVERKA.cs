@@ -8,5 +8,6 @@ namespace BAR
 {
     internal class PROVERKA
     {
+        //Проверка1
     }
 }
