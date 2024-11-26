@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAR.Model
+namespace BAR.Model.User
 {
-    internal class User
+    public class Guest : User
     {
+        public Guest()
+        {
+            Name = "Guest";
+        }
     }
 }

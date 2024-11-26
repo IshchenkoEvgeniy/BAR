@@ -57,9 +57,13 @@
     </ApplicationDefinition>
     <Compile Include="Model\product\Drink.cs" />
     <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\product\Product.cs" />
     <Compile Include="Model\Promotion.cs" />
     <Compile Include="Model\product\Snack.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\User\AccountUser.cs" />
+    <Compile Include="Model\User\Admin.cs" />
+    <Compile Include="Model\User\Guest.cs" />
+    <Compile Include="Model\User\User.cs" />
     <Compile Include="PROVERKA.cs" />
     <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\ValidationServic.cs" />

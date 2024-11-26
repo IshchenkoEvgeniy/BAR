@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BAR.Model.product;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace BAR.Model
 {
-    internal class Drink
+    public class Drink : Product
     {
+        public bool IsAlcoholic { get; set; }
+        public double Volume { get; set; }
     }
+
 }
