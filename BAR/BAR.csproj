@@ -55,7 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\product\Drink.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\Promotion.cs" />
+    <Compile Include="Model\product\Snack.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="PROVERKA.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\ValidationServic.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,6 +101,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+    <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Навигация по курсовой.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

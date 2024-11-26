@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAR
+namespace BAR.Services
 {
-    internal class PROVERKA
+    internal class ValidationServic
     {
-        //Проверка1 
     }
 }

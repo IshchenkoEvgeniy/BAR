@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAR
+namespace BAR.Model
 {
-    internal class PROVERKA
+    internal class Snack
     {
-        //Проверка1 
     }
 }
