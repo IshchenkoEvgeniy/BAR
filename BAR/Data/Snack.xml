@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Snack>
+		<Id>1</Id>
+		<Name>Снек</Name>
+		<Price>120.00</Price>
+		<Description>Свежий снек</Description>
+		<Category>закуска</Category>
+</Snack>

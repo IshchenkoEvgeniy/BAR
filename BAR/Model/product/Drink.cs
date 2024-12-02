@@ -9,7 +9,7 @@ namespace BAR.Model
 {
     public class Drink : Product
     {
-        public bool IsAlcoholic { get; set; }
+        public double Alcoholic { get; set; }
         public double Volume { get; set; }
     }
 

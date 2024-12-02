@@ -10,6 +10,5 @@ namespace BAR.Model
     public class Snack : Product
     {
         public double Weight { get; set; }
-        public bool IsVegetarian { get; set; }
     }
 }
