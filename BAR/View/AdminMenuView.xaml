@@ -22,15 +22,16 @@
                        Margin="10,5"
                        VerticalAlignment="Center"/>
             <ComboBox DockPanel.Dock="Left" Style="{StaticResource CustomComboBoxStyle}"
-          Margin="10,5"
-          Width="150"
-          SelectedIndex="{Binding SelectedMenuType}" Text="">
-                <ComboBoxItem Content="Меню напитков"/>
-                <ComboBoxItem Content="Акционные предложения"/>
-                <ComboBoxItem Content="Снеки"/>
-                
+                      Margin="10,5"
+                      Width="150"
+                      Background="Black"
+                      Foreground="White"
+                      BorderBrush="#666666"
+                      SelectedIndex="{Binding SelectedMenuType}">
+                <ComboBoxItem Content="Меню напитков" Foreground="White"/>
+                <ComboBoxItem Content="Акционные предложения" Foreground="White"/>
+                <ComboBoxItem Content="Снеки" Foreground="White"/>
             </ComboBox>
-
 
             <Button Content="Вийти" 
                     DockPanel.Dock="Right"
@@ -52,6 +53,11 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Название" Width="200">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="Black" FontWeight="Bold"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
@@ -60,6 +66,11 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Описание" Width="200">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="Black" FontWeight="Bold"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
@@ -68,6 +79,11 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Цена" Width="100">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="Black" FontWeight="Bold"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
@@ -76,6 +92,11 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Категория" Width="100">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="Black" FontWeight="Bold"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"
@@ -84,6 +105,11 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Доступно" Width="70">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="Black" FontWeight="Bold"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <CheckBox IsChecked="{Binding IsAvailable, UpdateSourceTrigger=PropertyChanged}"/>
@@ -94,24 +120,16 @@
                 </ListView.View>
             </ListView>
 
-            <!-- Панель управления -->
             <StackPanel Grid.Column="1" Width="150" Margin="0,0,0,0">
-                <Button Content="Додати" 
+                <Button Content="Добавить" 
                         Command="{Binding AddItemCommand}"
-                        Margin="0,0,0,5"
-                        Padding="5" Foreground="White"/>
-                <Button Content="Видалити" 
+                        Margin="0,0,0,5"/>
+                <Button Content="Удалить" 
                         Command="{Binding DeleteItemCommand}"
-                        Margin="0,0,0,5"
-                        Padding="5"/>
-                <Button Content="Оновити" 
-                        Command="{Binding RefreshCommand}"
-                        Margin="0,0,0,5"
-                        Padding="5"/>
-                <Button Content="Зберегти" 
+                        Margin="0,0,0,5"/>
+                <Button Content="Сохранить" 
                         Command="{Binding SaveChangesCommand}"
-                        Margin="0,0,0,5"
-                        Padding="5" Foreground="White"/>
+                        Margin="0,0,0,5"/>
             </StackPanel>
         </Grid>
     </Grid>
