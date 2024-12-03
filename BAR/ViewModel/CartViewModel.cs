@@ -13,10 +13,22 @@ namespace BAR.ViewModel
     public class CartViewModel : INotifyPropertyChanged
     {
         private readonly CartService _cartService = CartService.Instance;
+        private decimal _totalAmount;
         
         public ObservableCollection<CartItem> Items => _cartService.Items;
         
-        public decimal TotalAmount => _cartService.TotalAmount;
+        public decimal TotalAmount
+        {
+            get => _totalAmount;
+            private set
+            {
+                if (_totalAmount != value)
+                {
+                    _totalAmount = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         
         public int TotalItems => _cartService.TotalItems;
         
@@ -37,6 +49,7 @@ namespace BAR.ViewModel
             CheckoutCommand = new RelayCommand(Checkout, CanCheckout);
             
             _cartService.PropertyChanged += CartService_PropertyChanged;
+            TotalAmount = _cartService.TotalAmount;
         }
 
         private void CartService_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -44,7 +57,7 @@ namespace BAR.ViewModel
             switch (e.PropertyName)
             {
                 case nameof(CartService.TotalAmount):
-                    OnPropertyChanged(nameof(TotalAmount));
+                    TotalAmount = _cartService.TotalAmount;
                     break;
                 case nameof(CartService.TotalItems):
                     OnPropertyChanged(nameof(TotalItems));
@@ -102,6 +115,11 @@ namespace BAR.ViewModel
                 MessageBoxImage.Information);
             
             _cartService.Clear();
+        }
+
+        public void UpdateTotalAmount(decimal newAmount)
+        {
+            TotalAmount = newAmount;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

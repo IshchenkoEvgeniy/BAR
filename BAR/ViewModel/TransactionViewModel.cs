@@ -1,8 +1,10 @@
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using BAR.Commands;
+using BAR.Model.User;
 using BAR.Services;
 
 namespace BAR.ViewModel
@@ -10,6 +12,8 @@ namespace BAR.ViewModel
     public class TransactionViewModel : INotifyPropertyChanged
     {
         private readonly CartService _cartService = CartService.Instance;
+        private readonly UserService _userService = UserService.Instance;
+        private readonly OrderHistoryService _orderHistoryService = OrderHistoryService.Instance;
         private string _cardNumber;
         private string _month;
         private string _year;
@@ -73,6 +77,16 @@ namespace BAR.ViewModel
         {
             if (!ValidateCardData())
                 return;
+
+            // Сохраняем заказ в историю
+            if (!(_userService.CurrentUser is Guest))
+            {
+                _orderHistoryService.AddOrder(
+                    _userService.CurrentUser.Id,
+                    _cartService.Items.ToList(),
+                    _cartService.TotalAmount
+                );
+            }
 
             MessageBox.Show("Оплата прошла успешно!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
             

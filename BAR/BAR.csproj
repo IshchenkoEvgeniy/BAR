@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,26 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Services\UserService.cs" />
-    <Compile Include="ViewModel\AdminMenuViewModel.cs" />
-    <Compile Include="ViewModel\AuthorizationViewModel.cs" />
-    <Compile Include="ViewModel\CartViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\MenuViewModel.cs" />
-    <Compile Include="ViewModel\RegistrationViewModel.cs" />
-    <Compile Include="ViewModel\TransactionViewModel.cs" />
-    <Compile Include="View\AdminMenuView.xaml.cs">
-      <DependentUpon>AdminMenuView.xaml</DependentUpon>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\AuthorizationView.xaml.cs">
-      <DependentUpon>AuthorizationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RegistrationView.xaml.cs">
-      <DependentUpon>RegistrationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DrinksMenuView.xaml.cs">
-      <DependentUpon>DrinksMenuView.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -84,32 +72,86 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="View\AdminMenuView.xaml.cs">
+      <DependentUpon>AdminMenuView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AuthorizationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="View\AuthorizationView.xaml.cs">
+      <DependentUpon>AuthorizationView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\RegistrationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="View\RegistrationView.xaml.cs">
+      <DependentUpon>RegistrationView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\DrinksMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="View\DrinksMenuView.xaml.cs">
+      <DependentUpon>DrinksMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Page Include="View\CartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="View\CartView.xaml.cs">
+      <DependentUpon>CartView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\TransactionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="View\TransactionView.xaml.cs">
+      <DependentUpon>TransactionView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="View\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\OrderHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="View\OrderHistoryView.xaml.cs">
+      <DependentUpon>OrderHistoryView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <!-- Models -->
+    <Compile Include="Model\CartItem.cs" />
+    <Compile Include="Model\MenuItem.cs" />
+    <Compile Include="Model\OrderHistory.cs" />
     <Compile Include="Model\User\AccountUser.cs" />
     <Compile Include="Model\User\Admin.cs" />
     <Compile Include="Model\User\Guest.cs" />
     <Compile Include="Model\User\User.cs" />
+    <!-- Services -->
+    <Compile Include="Services\CartService.cs" />
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\OrderHistoryService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <!-- Commands -->
+    <Compile Include="Commands\RelayCommand.cs" />
+    <!-- ViewModels -->
+    <Compile Include="ViewModel\AdminMenuViewModel.cs" />
+    <Compile Include="ViewModel\AuthorizationViewModel.cs" />
+    <Compile Include="ViewModel\CartViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\OrderHistoryViewModel.cs" />
+    <Compile Include="ViewModel\RegistrationViewModel.cs" />
+    <Compile Include="ViewModel\TransactionViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,41 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Навигация.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <!-- Models -->
-    <Compile Include="Model\CartItem.cs" />
-    <Compile Include="Model\MenuItem.cs" />
-    <!-- Services -->
-    <Compile Include="Services\CartService.cs" />
-    <Compile Include="Services\MenuService.cs" />
-    <!-- Commands -->
-    <Compile Include="Commands\RelayCommand.cs" />
-    <!-- ViewModels -->
-    <Compile Include="ViewModel\CartViewModel.cs" />
-    <Compile Include="ViewModel\MenuViewModel.cs" />
-    <!-- Views -->
-    <Compile Include="View\CartView.xaml.cs">
-      <DependentUpon>CartView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\TransactionView.xaml.cs">
-      <DependentUpon>TransactionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MenuView.xaml.cs">
-      <DependentUpon>MenuView.xaml</DependentUpon>
-    </Compile>
-    <Page Include="View\CartView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\TransactionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Update="Data\menu.xml">

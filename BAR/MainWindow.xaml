@@ -29,6 +29,7 @@
             <Button Content="Меню напитков" Width="200" Height="40" Margin="5" Command="{Binding OpenDrinksMenuCommand}"/>
             <Button Content="Акционны предложения" Width="200" Height="40" Margin="5" Command="{Binding OpenFoodMenuCommand}"/>
             <Button Content="Корзина" Width="200" Height="40" Margin="5" Command="{Binding OpenCartCommand}"/>
+            <Button Content="История заказов" Width="200" Height="40" Margin="5" Command="{Binding OpenOrderHistoryCommand}"/>
             <Button Content="Выйти из акаунта" Width="200" Height="40" Margin="5" Command="{Binding LogOutCommand}"/>
         </StackPanel>
     </Grid>

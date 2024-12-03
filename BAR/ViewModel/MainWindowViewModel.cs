@@ -30,17 +30,19 @@ namespace BAR.ViewModel
         public ICommand OpenDrinksMenuCommand { get; }
         public ICommand OpenFoodMenuCommand { get; }
         public ICommand OpenCartCommand { get; }
+        public ICommand OpenOrderHistoryCommand { get; }
         public ICommand LogOutCommand { get; }
 
         public MainWindowViewModel()
         {
             _userService = UserService.Instance;
             _userService.CurrentUserChanged += UserService_CurrentUserChanged;
-
+            
             AccountCommand = new RelayCommand(ExecuteAccount);
             OpenDrinksMenuCommand = new RelayCommand(ExecuteOpenDrinksMenu);
             OpenFoodMenuCommand = new RelayCommand(ExecuteOpenFoodMenu);
             OpenCartCommand = new RelayCommand(ExecuteOpenCart);
+            OpenOrderHistoryCommand = new RelayCommand(ExecuteOpenOrderHistory);
             LogOutCommand = new RelayCommand(ExecuteLogOut);
 
             UpdateUserDisplay();
@@ -96,7 +98,7 @@ namespace BAR.ViewModel
         {
             if (_userService.CurrentUser is Guest)
             {
-                MessageBox.Show("Для доступа к акционным предложениям необходимо зарегистрироваться!",
+                MessageBox.Show("Для доступа к акционным предложениям необходимо зарегистрироваться!", 
                     "Требуется регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 var authWindow = new AuthorizationView();
                 authWindow.Show();
@@ -125,21 +127,31 @@ namespace BAR.ViewModel
             cartWindow.Show();
         }
 
-        private void ExecuteLogOut()
+        private void ExecuteOpenOrderHistory()
         {
             if (_userService.CurrentUser is Guest)
             {
-                MessageBox.Show("Необходимо зарегистрироваться!",
-                    "Требуется регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Для просмотра истории заказов необходимо авторизоваться!", 
+                    "Требуется авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
+                var authWindow = new AuthorizationView();
+                authWindow.Show();
                 return;
             }
-            if (MessageBox.Show("Вы действительно хотите выйти?",
-                "Подтверждение выхода",
-                MessageBoxButton.YesNo,
+
+            var historyWindow = new OrderHistoryView();
+            historyWindow.DataContext = new OrderHistoryViewModel();
+            historyWindow.Show();
+        }
+
+        private void ExecuteLogOut()
+        {
+            if (MessageBox.Show("Вы действительно хотите выйти?", 
+                "Подтверждение выхода", 
+                MessageBoxButton.YesNo, 
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 _userService.CurrentUser = new Guest();
-                MessageBox.Show("Вы успешно вышли из системы!",
+                MessageBox.Show("Вы успешно вышли из системы!", 
                     "Выход", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }

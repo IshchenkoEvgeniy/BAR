@@ -148,7 +148,7 @@
                      FontWeight="Bold" 
                      VerticalAlignment="Center"/>
             <TextBlock Grid.Column="1" 
-                     Text="{Binding TotalSum, StringFormat={}{0:C}}" 
+                     Text="{Binding TotalAmount, StringFormat={}{0:C}}" 
                      FontSize="18" 
                      FontWeight="Bold" 
                      VerticalAlignment="Center"/>
