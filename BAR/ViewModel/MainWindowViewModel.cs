@@ -83,7 +83,7 @@ namespace BAR.ViewModel
         {
             if (_userService.CurrentUser is Admin)
             {
-                var adminViewModel = new AdminMenuViewModel("menu.xml", "menu2.xml");
+                var adminViewModel = new AdminMenuViewModel("menu.xml", "menu2.xml", "menu3.xml");
                 var adminMenuWindow = new AdminMenuView();
                 adminMenuWindow.DataContext = adminViewModel;
                 adminMenuWindow.Show();
@@ -109,7 +109,7 @@ namespace BAR.ViewModel
 
             if (_userService.CurrentUser is Admin)
             {
-                var adminViewModel = new AdminMenuViewModel("menu2.xml", "menu.xml");
+                var adminViewModel = new AdminMenuViewModel("menu.xml", "menu2.xml", "menu3.xml");
                 var adminMenuWindow = new AdminMenuView();
                 adminMenuWindow.DataContext = adminViewModel;
                 adminMenuWindow.Show();
@@ -126,7 +126,7 @@ namespace BAR.ViewModel
         {
             if (_userService.CurrentUser is Admin)
             {
-                var adminViewModel = new AdminMenuViewModel("menu3.xml");
+                var adminViewModel = new AdminMenuViewModel("menu.xml", "menu2.xml", "menu3.xml");
                 var adminMenuWindow = new AdminMenuView();
                 adminMenuWindow.DataContext = adminViewModel;
                 adminMenuWindow.Show();
