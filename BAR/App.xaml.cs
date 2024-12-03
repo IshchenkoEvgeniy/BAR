@@ -13,17 +13,6 @@ namespace BAR
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-           // base.OnStartup(e);
-           // var mainWindow = new Model.TestOrderWindow();
-            //mainWindow.Show();
 
-
-
-            base.OnStartup(e);
-            var orderListWindow = new OrderListWindow();
-            orderListWindow.Show();
-        }
     }
 }

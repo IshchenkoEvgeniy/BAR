@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Menu>
+  <MenuItem>
+    <Id>3</Id>
+    <Name>Латте11</Name>
+    <Description>Эспрессо с молоком и небольшим количеством молочной пены</Description>
+    <Price>200</Price>
+    <Category>Кофе</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>5</Id>
+    <Name>Чай черныйvcbcvb</Name>
+    <Description>qwewчай</Description>
+    <Price>100</Price>
+    <Category>Чай</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>b8bfdc41-e5fa-41f6-bb6f-7064ef587349</Id>
+    <Name>vcbbvnНовый товар</Name>
+    <Description>Описаниdfsfdе товара</Description>
+    <Price>0</Price>
+    <Category></Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>742a87ba-6d65-4c83-be1a-5fe2d4199e97</Id>
+    <Name>Новый напитокvbcvcn</Name>
+    <Description>Описание</Description>
+    <Price>1123</Price>
+    <Category>Напитки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>1b8db3c3-4508-4e1d-b4e5-b0923357015a</Id>
+    <Name>Новый напитокvbbcvbvc</Name>
+    <Description>Описание</Description>
+    <Price>0</Price>
+    <Category>Напитки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>efc4eb14-020b-4093-bd53-92959bfd7dd6</Id>
+    <Name>Новый напитокvcbvcb</Name>
+    <Description>Описание</Description>
+    <Price>0</Price>
+    <Category>Напитки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>e15e0930-9ca6-45ca-9940-aba8bd81f371</Id>
+    <Name>Новый напитокvcbbvc</Name>
+    <Description>Описание</Description>
+    <Price>0</Price>
+    <Category>Напитки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+</Menu>

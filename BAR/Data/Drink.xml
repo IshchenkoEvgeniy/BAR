@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Drink>
-		<Id>1</Id>
-		<Name>Пиво </Name>
-		<Price>150.00</Price>
-		<Description>Классический немецкое пиво</Description>
-		<Category>Алкоголь</Category>
-</Drink>

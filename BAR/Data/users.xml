@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Users>
+  <User>
+    <Id>0e679760-7d3b-4e99-aaf8-419cb2757aab</Id>
+    <Name>cv</Name>
+    <Email>cvxzcxvcx@gmail.com</Email>
+    <PasswordHash>1111</PasswordHash>
+    <Type>AccountUser</Type>
+    <BonusPoints>0</BonusPoints>
+  </User>
+  <User>
+    <Id>b0c4dfbe-19f3-4ad7-9d66-ba0b3d12e2f8</Id>
+    <Name>1111</Name>
+    <Email>1111@gmail.com</Email>
+    <PasswordHash>1111</PasswordHash>
+    <Type>AccountUser</Type>
+    <BonusPoints>0</BonusPoints>
+  </User>
+  <User>
+    <Id>34c91453-6a39-426e-8420-3844bf7aeaa8</Id>
+    <Name>11111</Name>
+    <Email>11111@gmail.com</Email>
+    <PasswordHash>11111</PasswordHash>
+    <Type>Admin</Type>
+    <BonusPoints>0</BonusPoints>
+  </User>
+</Users>

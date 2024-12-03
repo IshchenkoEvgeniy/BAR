@@ -4,9 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BAR"
+        xmlns:viewModel="clr-namespace:BAR.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель с информацией об аккаунте -->
+        <Border Grid.Row="0" Background="#F0F0F0" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="{Binding CurrentUserText}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <Button Content="Аккаунт" Width="100" Height="30" Command="{Binding AccountCommand}"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Основные кнопки -->
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Меню напитков" Width="200" Height="40" Margin="5" Command="{Binding OpenDrinksMenuCommand}"/>
+            <Button Content="Акционны предложения" Width="200" Height="40" Margin="5" Command="{Binding OpenFoodMenuCommand}"/>
+            <Button Content="Корзина" Width="200" Height="40" Margin="5" Command="{Binding OpenCartCommand}"/>
+            <Button Content="Выйти" Width="200" Height="40" Margin="5" Command="{Binding LogOutCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>

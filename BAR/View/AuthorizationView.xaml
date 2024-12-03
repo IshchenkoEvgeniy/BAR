@@ -1,0 +1,30 @@
+﻿<Window x:Class="BAR.View.AuthorizationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BAR.View"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="20" VerticalAlignment="Center">
+            <TextBlock Text="Email:" />
+            <TextBox Text="{Binding Email}" Width="200" 
+                     HorizontalAlignment="Center" />
+
+            <TextBlock Text="Пароль:" Margin="0,10,0,0" />
+            <PasswordBox x:Name="PasswordBox" Width="200" 
+                        HorizontalAlignment="Center" />
+
+            <Button Content="Увійти" Width="150" Margin="0,20,0,0" 
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding ElementName=PasswordBox}"
+                    HorizontalAlignment="Center"/>
+
+            <Button Content="Зареєструватися" Width="150" Margin="0,10,0,0" 
+                    Command="{Binding OpenRegistrationCommand}"
+                    HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>
