@@ -36,7 +36,7 @@ namespace BAR.ViewModel
         {
             _userService = UserService.Instance;
             _userService.CurrentUserChanged += UserService_CurrentUserChanged;
-            
+
             AccountCommand = new RelayCommand(ExecuteAccount);
             OpenDrinksMenuCommand = new RelayCommand(ExecuteOpenDrinksMenu);
             OpenFoodMenuCommand = new RelayCommand(ExecuteOpenFoodMenu);
@@ -96,7 +96,7 @@ namespace BAR.ViewModel
         {
             if (_userService.CurrentUser is Guest)
             {
-                MessageBox.Show("Для доступа к акционным предложениям необходимо зарегистрироваться!", 
+                MessageBox.Show("Для доступа к акционным предложениям необходимо зарегистрироваться!",
                     "Требуется регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 var authWindow = new AuthorizationView();
                 authWindow.Show();
@@ -120,12 +120,28 @@ namespace BAR.ViewModel
 
         private void ExecuteOpenCart()
         {
-            // Implement cart opening logic
+            var cartWindow = new CartView();
+            cartWindow.DataContext = new CartViewModel();
+            cartWindow.Show();
         }
 
         private void ExecuteLogOut()
         {
-            _userService.CurrentUser = new Guest();
+            if (_userService.CurrentUser is Guest)
+            {
+                MessageBox.Show("Необходимо зарегистрироваться!",
+                    "Требуется регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            if (MessageBox.Show("Вы действительно хотите выйти?",
+                "Подтверждение выхода",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                _userService.CurrentUser = new Guest();
+                MessageBox.Show("Вы успешно вышли из системы!",
+                    "Выход", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
