@@ -5,15 +5,55 @@
     <Name>Упаковка снеків Рибна павутинка з перцем</Name>
     <Description>Упаковка снеків Рибна павутинка з перцем, 1кг</Description>
     <Price>450</Price>
-    <Category>ваы</Category>
+    <Category>Снеки</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>160198fd-5ede-41f9-ba93-51cb03aa8815</Id>
-    <Name>Новий елемент</Name>
-    <Description>Опис</Description>
-    <Price>0</Price>
-    <Category>Категорія</Category>
+    <Name>Ящик Грінки Хвилясті зі смаком Хрону</Name>
+    <Description>Ящик Грінки Хвилясті зі смаком Хрону, 900 гр</Description>
+    <Price>204</Price>
+    <Category>Снеки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>5f57743c-7c92-4bf5-b481-4765f025abc6</Id>
+    <Name>Упаковка арахісу "Crispy Васабі"</Name>
+    <Description>Упаковка арахісу "Crispy Васабі", 1кг</Description>
+    <Price>221</Price>
+    <Category>Снеки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>06ccf9c6-2ea7-4524-bfdc-f7b66d29fe1d</Id>
+    <Name>Упаковка арахісу "Crispy Сир"</Name>
+    <Description>Упаковка арахісу "Crispy Сир", 1кг</Description>
+    <Price>240</Price>
+    <Category>Снеки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>60a8dde0-f527-43c6-83e8-13857eadfb9f</Id>
+    <Name>Упаковка Кальмару по-Шанхайски з кунжутом</Name>
+    <Description>Упаковка Кальмару по-Шанхайски з кунжутом, 1 кг.</Description>
+    <Price>638</Price>
+    <Category>Снеки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>7782b1f6-1f7f-4be0-8027-d35d9cf0e9fa</Id>
+    <Name>Упаковка Кільця кальмару</Name>
+    <Description>Упаковка Кільця кальмару , 1кг</Description>
+    <Price>739</Price>
+    <Category>Снеки</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+  <MenuItem>
+    <Id>1c4ade20-993e-4565-9704-791fcc297396</Id>
+    <Name>Упаковка снеку Стружка краба</Name>
+    <Description>Упаковка снеку Стружка краба, 1кг</Description>
+    <Price>603</Price>
+    <Category>Снеки</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
 </Menu>
