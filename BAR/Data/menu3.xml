@@ -8,4 +8,12 @@
     <Category>ваы</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
+  <MenuItem>
+    <Id>160198fd-5ede-41f9-ba93-51cb03aa8815</Id>
+    <Name>Новий елемент</Name>
+    <Description>Опис</Description>
+    <Price>0</Price>
+    <Category>Категорія</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
 </Menu>

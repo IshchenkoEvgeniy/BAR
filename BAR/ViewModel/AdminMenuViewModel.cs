@@ -166,9 +166,9 @@ namespace BAR.ViewModel
             try
             {
                 var currentFileName = _menuFiles[SelectedMenuType];
-                _menuService.SaveMenuItems(currentFileName);
-                
-                // Update the corresponding view model
+                _menuService.UpdateMenuItems(currentFileName, MenuItems.ToList());
+
+
                 _menuViewModels[SelectedMenuType].MenuItems = new ObservableCollection<MenuItem>(MenuItems);
 
                 MessageBox.Show("Зміни збережено успішно!", "Збереження", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -183,10 +183,11 @@ namespace BAR.ViewModel
         {
             try
             {
-                _userService.Logout();
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-                Application.Current.Windows[0].Close();
+                Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                if (currentWindow != null)
+                {
+                    currentWindow.Close();
+                }
             }
             catch (Exception ex)
             {
