@@ -60,7 +60,7 @@
                                          FontWeight="Bold"
                                          FontSize="16"/>
                                 <TextBlock Text="{Binding Price, StringFormat='{}{0:C}'}"
-                                         Foreground="#666666"/>
+                                         Foreground="White"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" 
@@ -111,11 +111,11 @@
                             <ScrollViewer Focusable="False">
                                 <ItemsPresenter />
                             </ScrollViewer>
-                            <TextBlock Text="Корзина пуста"
+                            <TextBlock Text="Ваш кошик поки-що пустий :("
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Center"
                                      FontSize="18"
-                                     Foreground="#666666">
+                                     Foreground="White">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Visibility" Value="Collapsed"/>

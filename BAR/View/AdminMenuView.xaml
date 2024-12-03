@@ -24,7 +24,7 @@
             <ComboBox DockPanel.Dock="Left" Style="{StaticResource CustomComboBoxStyle}"
           Margin="10,5"
           Width="150"
-          SelectedIndex="{Binding SelectedMenuType}" Text="" IsDropDownOpen="True">
+          SelectedIndex="{Binding SelectedMenuType}" Text="">
                 <ComboBoxItem Content="Меню напитков"/>
                 <ComboBoxItem Content="Акционные предложения"/>
                 <ComboBoxItem Content="Снеки"/>
