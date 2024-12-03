@@ -7,45 +7,48 @@
         mc:Ignorable="d"
         Title="Панель администратора - Управление меню" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/View/Background.jpg" Stretch="Fill" Opacity="0.72" />
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Верхняя панель -->
-        <DockPanel Grid.Row="0" Background="#F0F0F0" LastChildFill="False">
+        <DockPanel Grid.Row="0" Background="#00000000" LastChildFill="False">
             <TextBlock Text="{Binding AdminDisplayName}" 
                        DockPanel.Dock="Left" 
                        Margin="10,5"
                        VerticalAlignment="Center"/>
-            <ComboBox DockPanel.Dock="Left"
-                      Margin="10,5"
-                      Width="150"
-                      SelectedIndex="{Binding SelectedMenuType}">
+            <ComboBox DockPanel.Dock="Left" Style="{StaticResource CustomComboBoxStyle}"
+          Margin="10,5"
+          Width="150"
+          SelectedIndex="{Binding SelectedMenuType}" Text="" IsDropDownOpen="True">
                 <ComboBoxItem Content="Меню напитков"/>
                 <ComboBoxItem Content="Акционные предложения"/>
                 <ComboBoxItem Content="Снеки"/>
+                
             </ComboBox>
-            <Button Content="Выйти" 
+
+
+            <Button Content="Вийти" 
                     DockPanel.Dock="Right"
                     Command="{Binding LogoutCommand}"
                     Margin="5"
                     Padding="10,5"/>
         </DockPanel>
 
-        <!-- Основное содержимое -->
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Список меню -->
             <ListView Grid.Column="0" 
                       ItemsSource="{Binding MenuItems}"
                       SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                      Margin="0,0,10,0">
+                      Margin="0,0,10,0" Background="Transparent" BorderBrush="Transparent">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Название" Width="200">
@@ -93,22 +96,22 @@
 
             <!-- Панель управления -->
             <StackPanel Grid.Column="1" Width="150" Margin="0,0,0,0">
-                <Button Content="Добавить" 
+                <Button Content="Додати" 
                         Command="{Binding AddItemCommand}"
                         Margin="0,0,0,5"
-                        Padding="5"/>
-                <Button Content="Удалить" 
+                        Padding="5" Foreground="White"/>
+                <Button Content="Видалити" 
                         Command="{Binding DeleteItemCommand}"
                         Margin="0,0,0,5"
                         Padding="5"/>
-                <Button Content="Обновить" 
+                <Button Content="Оновити" 
                         Command="{Binding RefreshCommand}"
                         Margin="0,0,0,5"
                         Padding="5"/>
-                <Button Content="Сохранить" 
+                <Button Content="Зберегти" 
                         Command="{Binding SaveChangesCommand}"
                         Margin="0,0,0,5"
-                        Padding="5"/>
+                        Padding="5" Foreground="White"/>
             </StackPanel>
         </Grid>
     </Grid>

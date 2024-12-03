@@ -4,7 +4,10 @@
         xmlns:viewModel="clr-namespace:BAR.ViewModel"
         Title="Оплата заказа" Height="300" Width="400"
         WindowStartupLocation="CenterScreen">
-    
+    <Window.Background>
+        <ImageBrush ImageSource="/View/Background.jpg" Stretch="Fill" Opacity="0.72" />
+    </Window.Background>
+
     <Window.DataContext>
         <viewModel:TransactionViewModel/>
     </Window.DataContext>
@@ -22,8 +25,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Номер карты -->
-        <TextBlock Text="Номер карты:" Margin="10" VerticalAlignment="Center"/>
+        <TextBlock Text="Номер картки:" Margin="10" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Margin="10" MaxLength="16" 
                 Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}">
             <TextBox.InputBindings>
@@ -33,7 +35,6 @@
             </TextBox.InputBindings>
         </TextBox>
 
-        <!-- Дата -->
         <TextBlock Text="Дата (MM/YY):" Margin="10" Grid.Row="1" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10">
             <TextBox Width="30" MaxLength="2" 
@@ -55,7 +56,6 @@
             </TextBox>
         </StackPanel>
 
-        <!-- CVV -->
         <TextBlock Text="CVV:" Margin="10" Grid.Row="2" VerticalAlignment="Center"/>
         <TextBox Grid.Row="2" Grid.Column="1" Margin="10" MaxLength="3" Width="50" 
                 HorizontalAlignment="Left" 
@@ -67,8 +67,7 @@
             </TextBox.InputBindings>
         </TextBox>
 
-        <!-- Кнопка подтверждения -->
-        <Button Content="Подтвердить" Grid.Row="3" Grid.Column="1" 
+        <Button Content="Підтвердити" Grid.Row="3" Grid.Column="1" 
                 Margin="10" Width="150" HorizontalAlignment="Left"
                 Command="{Binding ConfirmCommand}"
                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>

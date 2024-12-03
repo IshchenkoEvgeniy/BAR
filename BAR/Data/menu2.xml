@@ -2,65 +2,65 @@
 <Menu>
   <MenuItem>
     <Id>1</Id>
-    <Name>123</Name>
-    <Description>ваы</Description>
-    <Price>450</Price>
-    <Category>ваы</Category>
+    <Name>Упаковка сидру "Cidre Royal з Грушею", 0,33л х 12шт.</Name>
+    <Description>Упаковка сидру зі смаком груші 12 пляшок 0.33</Description>
+    <Price>396</Price>
+    <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>2</Id>
-    <Name>12</Name>
-    <Description>ваы</Description>
-    <Price>500</Price>
-    <Category>ваы</Category>
+    <Name>Упаковка сидру Gardenz PARTY MIX "Енерджі"</Name>
+    <Description>Упаковка сидру Gardenz PARTY MIX "Енерджі", 0,5л х 8шт.</Description>
+    <Price>330</Price>
+    <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>3</Id>
-    <Name>123</Name>
-    <Description>Спаге</Description>
-    <Price>38000000</Price>
-    <Category>варкпрец</Category>
+    <Name>Упаковка сидру Gardenz PARTY MIX "Мандарин-Джин"</Name>
+    <Description>Упаковка сидру Gardenz PARTY MIX "Мандарин-Джин", 0,5л х 8шт.</Description>
+    <Price>330</Price>
+    <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>7baa653a-b874-4733-ad3c-1b67928f9ff6</Id>
-    <Name>Новая акция</Name>
-    <Description>Описание</Description>
-    <Price>0</Price>
+    <Name>Упаковка сидру "Cidre Royal з Полуницею"</Name>
+    <Description>Упаковка сидру "Cidre Royal з Полуницею", 0,7л х 6шт.</Description>
+    <Price>420</Price>
     <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>2ba32e4b-3736-489e-a3b5-dc8eb0b68be8</Id>
-    <Name>Новая акция</Name>
-    <Description>Описание</Description>
-    <Price>0</Price>
+    <Name>Упаковка сидру "Cidre Royal з Медом"</Name>
+    <Description>Упаковка сидру "Cidre Royal з Медом", 0,7л х 6шт.</Description>
+    <Price>420</Price>
     <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>e107c27e-85e8-4c91-9a7b-5c6583f0e583</Id>
-    <Name>Новая акция</Name>
-    <Description>Описание</Description>
-    <Price>0</Price>
+    <Name>Упаковка сидру "Cidre Royal з Журавлиною"</Name>
+    <Description>Упаковка сидру "Cidre Royal з Журавлиною", 0,33л х 12шт.</Description>
+    <Price>420</Price>
     <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>d8b7bbc3-03d9-4b45-b32e-a9bad6baa8be</Id>
-    <Name>Новая акция</Name>
-    <Description>Описание</Description>
-    <Price>0</Price>
+    <Name>Упаковка пива Уманьпиво "Waissburg Lager"синій</Name>
+    <Description>Упаковка пива Уманьпиво "Waissburg Lager"синій, 0,5л х 12шт.</Description>
+    <Price>280</Price>
     <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>
   <MenuItem>
     <Id>1795d486-6ced-4d8c-baf6-d838d86693c6</Id>
-    <Name>Новая акция</Name>
-    <Description>Описание</Description>
-    <Price>0</Price>
+    <Name>Упаковка імпортного пива Bavaria безалкогольне</Name>
+    <Description>Упаковка імпортного пива Bavaria безалкогольне 0.5л Ж/Б х 24 шт.</Description>
+    <Price>290</Price>
     <Category>Акции</Category>
     <IsAvailable>true</IsAvailable>
   </MenuItem>

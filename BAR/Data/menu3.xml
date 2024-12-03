@@ -2,8 +2,8 @@
 <Menu>
   <MenuItem>
     <Id>1</Id>
-    <Name>Снек</Name>
-    <Description>ваы</Description>
+    <Name>Упаковка снеків Рибна павутинка з перцем</Name>
+    <Description>Упаковка снеків Рибна павутинка з перцем, 1кг</Description>
     <Price>450</Price>
     <Category>ваы</Category>
     <IsAvailable>true</IsAvailable>

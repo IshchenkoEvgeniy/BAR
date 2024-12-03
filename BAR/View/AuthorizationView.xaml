@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Авторизация" Height="300" Width="400"
         WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/View/Background.jpg" Stretch="Fill" Opacity="0.72" />
+    </Window.Background>
     <Grid>
         <StackPanel Margin="20" VerticalAlignment="Center">
             <TextBlock Text="Email:" />
