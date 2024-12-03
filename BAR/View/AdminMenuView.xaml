@@ -25,6 +25,7 @@
                       SelectedIndex="{Binding SelectedMenuType}">
                 <ComboBoxItem Content="Меню напитков"/>
                 <ComboBoxItem Content="Акционные предложения"/>
+                <ComboBoxItem Content="Снеки"/>
             </ComboBox>
             <Button Content="Выйти" 
                     DockPanel.Dock="Right"

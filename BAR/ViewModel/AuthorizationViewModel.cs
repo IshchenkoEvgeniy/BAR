@@ -41,7 +41,7 @@ namespace BAR.ViewModel
         {
             if (string.IsNullOrEmpty(Email) || passwordBox == null || string.IsNullOrEmpty(passwordBox.Password))
             {
-                MessageBox.Show("Заполните все поля!");
+                MessageBox.Show("Заповніть усі поля!");
                 return;
             }
 
@@ -51,17 +51,17 @@ namespace BAR.ViewModel
                 if (user != null)
                 {
                     _userService.CurrentUser = user;
-                    MessageBox.Show($"Добро пожаловать, {user.Name}!");
+                    MessageBox.Show($"Привіт друже, {user.Name}!");
                     CloseCurrentWindow();
                 }
                 else
                 {
-                    MessageBox.Show("Неверный email или пароль!");
+                    MessageBox.Show("Неправильний email або пароль!");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при входе: {ex.Message}");
+                MessageBox.Show($"Помилка під час входу: {ex.Message}");
             }
         }
 
@@ -70,7 +70,7 @@ namespace BAR.ViewModel
             string xmlFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\users.xml");
             if (!File.Exists(xmlFile))
             {
-                throw new Exception("База данных пользователей не найдена!");
+                throw new Exception("База даних користувачів не знайдена!");
             }
 
             var doc = XDocument.Load(xmlFile);

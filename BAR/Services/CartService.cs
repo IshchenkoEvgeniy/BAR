@@ -169,7 +169,7 @@ namespace BAR.Services
                 }
                 catch (ArgumentException)
                 {
-                    // Игнорируем некорректные значения количества
+                    
                 }
             }
         }
@@ -185,7 +185,7 @@ namespace BAR.Services
                 }
                 catch (ArgumentException)
                 {
-                    // Игнорируем переполнение
+                    
                 }
             }
         }
@@ -226,7 +226,7 @@ namespace BAR.Services
             }
             catch (Exception)
             {
-                // Логируем ошибку сохранения
+                
             }
         }
 
@@ -253,7 +253,7 @@ namespace BAR.Services
             }
             catch (Exception)
             {
-                // Логируем ошибку загрузки
+                
             }
         }
 

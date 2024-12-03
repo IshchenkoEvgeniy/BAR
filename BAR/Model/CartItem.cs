@@ -32,7 +32,7 @@ namespace BAR.Model
             set
             {
                 if (value < 0)
-                    throw new ArgumentException("Количество не может быть отрицательным");
+                    throw new ArgumentException("Кількість не може бути від'ємною");
                     
                 if (_quantity != value)
                 {

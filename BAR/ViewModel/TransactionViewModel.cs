@@ -88,7 +88,7 @@ namespace BAR.ViewModel
                 );
             }
 
-            MessageBox.Show("Оплата прошла успешно!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Платіж пройшов успішно!", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
             
             // Очищаем корзину после успешной оплаты
             _cartService.Clear();
@@ -105,28 +105,28 @@ namespace BAR.ViewModel
             // Проверка номера карты (16 цифр)
             if (string.IsNullOrEmpty(CardNumber) || CardNumber.Length != 16)
             {
-                MessageBox.Show("Номер карты должен содержать 16 цифр", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Номер картки повинен містити 16 цифр", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             // Проверка месяца (1-12)
             if (!int.TryParse(Month, out int month) || month < 1 || month > 12)
             {
-                MessageBox.Show("Неверный месяц", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Неправильний місяць", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             // Проверка года (больше текущего)
             if (!int.TryParse(Year, out int year) || year < DateTime.Now.Year % 100)
             {
-                MessageBox.Show("Неверный год", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Неправильний рік", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             // Проверка CVV (3 цифры)
             if (string.IsNullOrEmpty(CVV) || CVV.Length != 3)
             {
-                MessageBox.Show("CVV должен содержать 3 цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("CVV має містити 3 цифри", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 

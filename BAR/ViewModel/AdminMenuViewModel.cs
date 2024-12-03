@@ -6,6 +6,8 @@ using BAR.Services;
 using System.ComponentModel;
 using System.Windows;
 using BAR.Commands;
+using System.Collections.Generic;
+using System.Linq;
 using System.Collections.Specialized;
 
 namespace BAR.ViewModel
@@ -14,24 +16,26 @@ namespace BAR.ViewModel
     {
         private readonly MenuService _menuService;
         private readonly UserService _userService;
-        private readonly MenuViewModel _menuViewModel;
-        private readonly MenuViewModel _promotionsViewModel;
+        private readonly List<string> _menuFiles;
+        private readonly List<MenuViewModel> _menuViewModels;
         private ObservableCollection<MenuItem> _menuItems;
         private MenuItem _selectedItem;
         private int _selectedMenuType;
-        private readonly string _menuFileName;
-        private readonly string _promotionsFileName;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public AdminMenuViewModel(string menuFileName, string promotionsFileName)
+        public AdminMenuViewModel(params string[] menuFiles)
         {
-            _menuFileName = menuFileName;
-            _promotionsFileName = promotionsFileName;
+            _menuFiles = menuFiles.ToList();
             _menuService = MenuService.Instance;
             _userService = UserService.Instance;
-            _menuViewModel = new MenuViewModel(_menuFileName);
-            _promotionsViewModel = new MenuViewModel(_promotionsFileName);
+            
+            _menuViewModels = new List<MenuViewModel>();
+            foreach (var menuFile in _menuFiles)
+            {
+                _menuViewModels.Add(new MenuViewModel(menuFile));
+            }
+            
             LoadMenuItems();
             InitializeCommands();
         }
@@ -41,7 +45,7 @@ namespace BAR.ViewModel
             get => _selectedMenuType;
             set
             {
-                if (_selectedMenuType != value)
+                if (_selectedMenuType != value && value >= 0 && value < MenuCount)
                 {
                     _selectedMenuType = value;
                     OnPropertyChanged(nameof(SelectedMenuType));
@@ -50,16 +54,18 @@ namespace BAR.ViewModel
             }
         }
 
+        public int MenuCount => _menuFiles.Count;
+
         private void LoadMenuItems()
         {
             try
             {
-                var currentViewModel = SelectedMenuType == 0 ? _menuViewModel : _promotionsViewModel;
+                var currentViewModel = _menuViewModels[SelectedMenuType];
                 MenuItems = new ObservableCollection<MenuItem>(currentViewModel.MenuItems);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка загрузки меню: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Помилка завантаження меню: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -84,7 +90,7 @@ namespace BAR.ViewModel
             }
         }
 
-        public string AdminDisplayName => $"Администратор: {_userService.CurrentUser?.Name ?? "Неизвестный"}";
+        public string AdminDisplayName => $"Адміністратор: {_userService.CurrentUser?.Name ?? "Невідомий"}";
 
         #region Commands
         public ICommand AddItemCommand { get; private set; }
@@ -108,10 +114,10 @@ namespace BAR.ViewModel
                 var newItem = new MenuItem
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Name = SelectedMenuType == 0 ? "Новый напиток" : "Новая акция",
-                    Description = "Описание",
+                    Name = "Новий елемент",
+                    Description = "Опис",
                     Price = 0,
-                    Category = SelectedMenuType == 0 ? "Напитки" : "Акции",
+                    Category = "Категорія",
                     IsAvailable = true
                 };
 
@@ -121,7 +127,7 @@ namespace BAR.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при добавлении: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Помилка під час додавання: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -131,8 +137,8 @@ namespace BAR.ViewModel
 
             try
             {
-                var result = MessageBox.Show($"Вы уверены, что хотите удалить этот {(SelectedMenuType == 0 ? "напиток" : "акцию")}?", 
-                    "Подтверждение удаления", 
+                var result = MessageBox.Show($"Ви впевнені, що хочете видалити цей елемент?",
+                    "Підтвердження видалення", 
                     MessageBoxButton.YesNo, 
                     MessageBoxImage.Question);
 
@@ -141,12 +147,12 @@ namespace BAR.ViewModel
                     MenuItems.Remove(SelectedItem);
                     SaveChanges();
                     SelectedItem = null;
-                    MessageBox.Show("Элемент успешно удален", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Елемент успішно видалено", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при удалении: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Помилка під час видалення: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -159,20 +165,17 @@ namespace BAR.ViewModel
         {
             try
             {
-                var currentFileName = SelectedMenuType == 0 ? _menuFileName : _promotionsFileName;
+                var currentFileName = _menuFiles[SelectedMenuType];
                 _menuService.SaveMenuItems(currentFileName);
                 
                 // Update the corresponding view model
-                if (SelectedMenuType == 0)
-                    _menuViewModel.MenuItems = new ObservableCollection<MenuItem>(MenuItems);
-                else
-                    _promotionsViewModel.MenuItems = new ObservableCollection<MenuItem>(MenuItems);
+                _menuViewModels[SelectedMenuType].MenuItems = new ObservableCollection<MenuItem>(MenuItems);
 
-                MessageBox.Show("Изменения сохранены успешно!", "Сохранение", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Зміни збережено успішно!", "Збереження", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Помилка під час збереження: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -187,7 +190,7 @@ namespace BAR.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при выходе: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Помилка під час виходу: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

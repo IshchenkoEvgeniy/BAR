@@ -29,6 +29,7 @@ namespace BAR.ViewModel
         public ICommand AccountCommand { get; }
         public ICommand OpenDrinksMenuCommand { get; }
         public ICommand OpenFoodMenuCommand { get; }
+        public ICommand OpenShekMenuCommand { get; }
         public ICommand OpenCartCommand { get; }
         public ICommand OpenOrderHistoryCommand { get; }
         public ICommand LogOutCommand { get; }
@@ -41,6 +42,7 @@ namespace BAR.ViewModel
             AccountCommand = new RelayCommand(ExecuteAccount);
             OpenDrinksMenuCommand = new RelayCommand(ExecuteOpenDrinksMenu);
             OpenFoodMenuCommand = new RelayCommand(ExecuteOpenFoodMenu);
+            OpenShekMenuCommand = new RelayCommand(ExecuteOpenShekMenu);
             OpenCartCommand = new RelayCommand(ExecuteOpenCart);
             OpenOrderHistoryCommand = new RelayCommand(ExecuteOpenOrderHistory);
             LogOutCommand = new RelayCommand(ExecuteLogOut);
@@ -56,11 +58,11 @@ namespace BAR.ViewModel
         private void UpdateUserDisplay()
         {
             if (_userService.CurrentUser is Admin)
-                CurrentUserText = $"Администратор: {_userService.CurrentUser.Name}";
+                CurrentUserText = $"Адміністратор: {_userService.CurrentUser.Name}";
             else if (_userService.CurrentUser is AccountUser)
-                CurrentUserText = $"Пользователь: {_userService.CurrentUser.Name}";
+                CurrentUserText = $"Користувач: {_userService.CurrentUser.Name}";
             else
-                CurrentUserText = "Гость";
+                CurrentUserText = "Гість";
         }
 
         private void ExecuteAccount()
@@ -72,8 +74,8 @@ namespace BAR.ViewModel
             }
             else
             {
-                MessageBox.Show($"Текущий пользователь: {CurrentUserText}\nТип: {_userService.CurrentUser.GetType().Name}",
-                    "Информация об аккаунте", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Поточний користувач: {CurrentUserText}\nТип: {_userService.CurrentUser.GetType().Name}",
+                    "Інформація про акаунт", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -98,8 +100,8 @@ namespace BAR.ViewModel
         {
             if (_userService.CurrentUser is Guest)
             {
-                MessageBox.Show("Для доступа к акционным предложениям необходимо зарегистрироваться!", 
-                    "Требуется регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Для доступу до акційних пропозицій необхідно зареєструватися!",
+                    "Потрібна реєстрація", MessageBoxButton.OK, MessageBoxImage.Information);
                 var authWindow = new AuthorizationView();
                 authWindow.Show();
                 return;
@@ -119,7 +121,23 @@ namespace BAR.ViewModel
                 menuWindow.Show();
             }
         }
-
+        
+        private void ExecuteOpenShekMenu()
+        {
+            if (_userService.CurrentUser is Admin)
+            {
+                var adminViewModel = new AdminMenuViewModel("menu3.xml");
+                var adminMenuWindow = new AdminMenuView();
+                adminMenuWindow.DataContext = adminViewModel;
+                adminMenuWindow.Show();
+            }
+            else
+            {
+                var menuWindow = new MenuView();
+                menuWindow.DataContext = new MenuViewModel("menu3.xml");
+                menuWindow.Show();
+            }
+        }
         private void ExecuteOpenCart()
         {
             var cartWindow = new CartView();
@@ -131,8 +149,8 @@ namespace BAR.ViewModel
         {
             if (_userService.CurrentUser is Guest)
             {
-                MessageBox.Show("Для просмотра истории заказов необходимо авторизоваться!", 
-                    "Требуется авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Для перегляду історії замовлень необхідно авторизуватися!",
+                    "Потрібна авторизація", MessageBoxButton.OK, MessageBoxImage.Information);
                 var authWindow = new AuthorizationView();
                 authWindow.Show();
                 return;
@@ -145,14 +163,14 @@ namespace BAR.ViewModel
 
         private void ExecuteLogOut()
         {
-            if (MessageBox.Show("Вы действительно хотите выйти?", 
-                "Подтверждение выхода", 
+            if (MessageBox.Show("Ви справді хочете вийти?",
+                "Підтвердження виходу", 
                 MessageBoxButton.YesNo, 
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 _userService.CurrentUser = new Guest();
-                MessageBox.Show("Вы успешно вышли из системы!", 
-                    "Выход", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Ви успішно вийшли із системи!",
+                    "Вихід", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

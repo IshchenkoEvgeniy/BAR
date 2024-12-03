@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Menu>
+  <MenuItem>
+    <Id>1</Id>
+    <Name>Снек</Name>
+    <Description>ваы</Description>
+    <Price>450</Price>
+    <Category>ваы</Category>
+    <IsAvailable>true</IsAvailable>
+  </MenuItem>
+</Menu>

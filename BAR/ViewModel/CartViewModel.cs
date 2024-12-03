@@ -79,8 +79,8 @@ namespace BAR.ViewModel
         private void RemoveItem(string itemId)
         {
             if (MessageBox.Show(
-                "Вы уверены, что хотите удалить этот товар из корзины?",
-                "Подтверждение удаления",
+                "Ви впевнені, що хочете видалити цей товар із кошика?",
+                "Підтвердження видалення",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
@@ -91,8 +91,8 @@ namespace BAR.ViewModel
         private void ClearCart()
         {
             if (MessageBox.Show(
-                "Вы уверены, что хотите очистить корзину?",
-                "Подтверждение очистки",
+                "Ви впевнені, що хочете очистити кошик?",
+                "Підтвердження очищення",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
@@ -109,8 +109,8 @@ namespace BAR.ViewModel
         {
             // TODO: Реализовать оформление заказа
             MessageBox.Show(
-                $"Заказ на сумму {TotalAmount:C} оформлен!",
-                "Заказ оформлен",
+                $"Замовлення на суму {TotalAmount:C} оформлений!",
+                "Замовлення оформлено",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
             

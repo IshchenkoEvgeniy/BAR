@@ -47,7 +47,7 @@ namespace BAR.Services
                 
                 if (!File.Exists(menuPath))
                 {
-                    MessageBox.Show($"Файл меню {menuFileName} не найден!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Файл меню {menuFileName} не знайдено!", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -73,7 +73,7 @@ namespace BAR.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при загрузке меню {menuFileName}: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Помилка під час завантаження меню {menuFileName}: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -104,7 +104,7 @@ namespace BAR.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при сохранении меню {menuFileName}: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Помилка під час збереження меню {menuFileName}: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

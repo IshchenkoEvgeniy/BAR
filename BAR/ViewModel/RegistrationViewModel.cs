@@ -78,31 +78,31 @@ namespace BAR.ViewModel
             if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Email) ||
                 string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
-                MessageBox.Show("Заполните все поля!");
+                MessageBox.Show("Заповніть усі поля!");
                 return;
             }
 
             if (!IsValidEmail(Email))
             {
-                MessageBox.Show("Введите корректный email!");
+                MessageBox.Show("Введіть коректний email!");
                 return;
             }
 
             if (password != confirmPassword)
             {
-                MessageBox.Show("Пароли не совпадают!");
+                MessageBox.Show("Паролі не збігаються!");
                 return;
             }
 
             try
             {
                 SaveUserToXml(password);
-                MessageBox.Show("Регистрация успешна!");
+                MessageBox.Show("Реєстрація успішна!");
                 BackToLogin();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при регистрации: {ex.Message}");
+                MessageBox.Show($"Помилка під час реєстрації: {ex.Message}");
             }
         }
 
@@ -126,7 +126,7 @@ namespace BAR.ViewModel
 
                 if (existingUser != null)
                 {
-                    throw new Exception("Пользователь с таким email уже существует!");
+                    throw new Exception("Користувач з таким email вже існує!");
                 }
             }
             else
