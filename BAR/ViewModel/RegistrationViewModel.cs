@@ -108,7 +108,8 @@ namespace BAR.ViewModel
 
         private void SaveUserToXml(string password)
         {
-            string xmlFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\users.xml");
+            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            string xmlFile = Path.Combine(projectPath, "Data", "users.xml");
             string dataFolder = Path.GetDirectoryName(xmlFile);
 
             if (!Directory.Exists(dataFolder))

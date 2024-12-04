@@ -10,7 +10,7 @@ namespace BAR.Services
     public class OrderHistoryService
     {
         private static OrderHistoryService _instance;
-        private readonly string _historyFilePath = "Data/orderHistory.xml";
+        private readonly string _historyFilePath;
         private List<OrderHistory> _orderHistory;
 
         public static OrderHistoryService Instance 
@@ -27,6 +27,8 @@ namespace BAR.Services
 
         private OrderHistoryService()
         {
+            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            _historyFilePath = Path.Combine(projectPath, "Data", "orderHistory.xml");
             _orderHistory = LoadOrderHistory();
         }
 
@@ -54,7 +56,8 @@ namespace BAR.Services
         {
             if (!File.Exists(_historyFilePath))
             {
-                Directory.CreateDirectory("Data");
+                string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                Directory.CreateDirectory(Path.Combine(projectPath, "Data"));
                 return new List<OrderHistory>();
             }
 

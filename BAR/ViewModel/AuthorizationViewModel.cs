@@ -67,7 +67,8 @@ namespace BAR.ViewModel
 
         private User AuthenticateUser(string email, string password)
         {
-            string xmlFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\users.xml");
+            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            string xmlFile = Path.Combine(projectPath, "Data", "users.xml");
             if (!File.Exists(xmlFile))
             {
                 throw new Exception("База даних користувачів не знайдена!");
